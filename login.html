@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+
+
+    <form class="box">
+        <h1>LOGIN</h1>
+        <input id="id" type="text" placeholder="Username" name="" required>
+        <input id="passs" type="password" placeholder="Password" name="" required>
+        <button type="button" class="loginbtn" onclick="loginnn()">login</button>
+        <a href="signup.html" style="float: right;">Create a new id</a><br>
+        <p id="p1"></p>
+    </form>
+
+</body>
+
+<script>
+    function loginnn() {
+        let params = {
+            username: document.getElementById("id").value,
+            password: document.getElementById("passs").value
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://c43944b2.ngrok.io/ashish_login', true);
+
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() { // Call a function when the state changes.
+            {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+
+
+                    if (myArr.message == "Auth successful") {
+                        var ab = document.getElementById("id").value;
+                        localStorage.setItem("user", ab);
+                        var x = "a";
+                        localStorage.setItem("k", x);
+
+                        window.open("index.html", "_self")
+                    } else {
+                        document.getElementById("p1").style.color = "#FFFFFF";
+                        document.getElementById("p1").innerHTML = JSON.stringify(" Invalid Id");
+                    }
+                }
+
+            }
+        }
+
+        xhr.send(JSON.stringify(params));
+    }
+</script>
+
+
+</html>

@@ -1,0 +1,76 @@
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="login.css" />
+</head>
+
+<body>
+    <form class="box">
+        <h1>Sign Up</h1>
+        <input id="username" type="text" placeholder="Username" name="" required>
+        <input id="email" type="email" placeholder="Email" name="" required>
+        <input id="pno" type="tel" placeholder="Phone number" name="" required>
+        <input id="fb" type="text" placeholder="Facebook Id" name="" required>
+        <input id="insta" type="text" placeholder="Instagram Id" name="" required>
+        <input id="password" type="password" placeholder="Password" name="" required>
+        <input id="" type="password" placeholder="Confirm Password" name="" required>
+        <button type="button" class="loginbtn" onclick="loginnn()">Signup</button>
+        <p id="p1"></p>
+        <a style="float: right;" href="login.html"> Login</a>
+        <a style="float: right;">Already have a account?  </a>
+    </form>
+</body>
+<script>
+    function loginnn() {
+
+        let params = {
+            username: document.getElementById("username").value,
+            email: document.getElementById("email").value,
+            ph_no: document.getElementById("pno").value,
+            f_id: document.getElementById("fb").value,
+            i_id: document.getElementById("insta").value,
+            password: document.getElementById("password").value,
+
+        }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", 'http://c43944b2.ngrok.io/ashish_signup', true);
+
+        //Send the proper header information along with the request
+
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function() { // Call a function when the state changes.
+            {
+
+                if (this.readyState == 4 && this.status == 200) {
+                    var myArr = JSON.parse(this.responseText);
+
+
+                    if (myArr.code == 200) {
+                        document.getElementById("p1").style.color = "#4CAF50";
+                        document.getElementById("p1").innerHTML = JSON.stringify("ID Created");
+                    } else if (myArr.code == 409) {
+                        document.getElementById("p1").style.color = "#D32F2F";
+                        document.getElementById("p1").innerHTML = JSON.stringify(" Id already exist");
+                    } else {
+                        document.getElementById("p1").style.color = "#D32F2F";
+                        document.getElementById("p1").innerHTML = JSON.stringify("Error");
+                    }
+                } else {
+                    document.getElementById("p1").style.color = "#D32F2F";
+                    document.getElementById("p1").innerHTML = JSON.stringify("Error");
+                }
+
+            }
+        }
+
+        xhr.send(JSON.stringify(params));
+
+
+
+    }
+</script>
+
+</html>

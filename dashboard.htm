@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<script>
+    var ab = localStorage.getItem("user");
+    var a = localStorage.getItem("k");
+</script>
+
+<body>
+
+    <div>
+        <img src="logo.png" height="90px" width="130px" style="padding-left: 50px;">
+        <div class="topnav" id="myTopnav">
+            <img src="usericon.png" style="width: 5%; height: 5%; float: right;">
+            <p id="user" style="float: right; padding-left: 10px; font-size: larger; text-align: center; font-weight: bold; "></p>
+
+            <a type="button" href="login.html" style="background-color: indianred; color: white;" id="btnout">Login/SignUp</a>
+            <a href="myselect.html">my Select</a>
+            <a href="mydrive.html">my Drive</a>
+        </div>
+
+
+    </div>
+    <div class="booking">
+        <br>
+        <h1 style="text-align: center; color: white;"> Book a City Taxi to your destination in town </h1>
+        <p style="text-align: center; color: white; font-size: 20px;">Choose from a range of categories and prices</p>
+        <br><br>
+        <div class="box">
+            <br>
+            <a class="active">CITY TAXI</a>
+            <a>OUTSTATION</a>
+            <a>RENTALS</a>
+            <div style="line-height: 10px;padding-top: 5px;">
+                <p style="text-align: center;">Your everyday travel partner</p>
+                <p style="text-align: center;">AC Cabs for point to point travel</p>
+            </div>
+            <center> <input type="text" placeholder="Current location" class="input"></center>
+            <center><input type="text" placeholder="Enter drop location" class="input"></center>
+            <div class="dropdown">
+                <center> <button class="dropbtn">WHEN</button></center>
+                <div class="dropdown-content">
+                    <a href="#">Now</a>
+                    <a href="#">Schedule for later</a>
+                </div>
+            </div>
+            <center> <button style="background-color: indianred; height: 40px; width: 90%; margin-top: 10px; color: white;">Search for Cabs</button></center>
+        </div>
+        <br><br><br><br><br>
+    </div>
+    <br>
+    <div style="line-height: 10px;">
+        <h1 style="margin-left: 90px;">Why ride with myRide</h1>
+        <p style="margin-left: 90px;">The best way to travel to your destination</p>
+    </div>
+    <div class="row1">
+        <div class="column">
+            <div class="card" style="background-image: grey;">
+                <img src="img2.jpg" style="float: left;">
+                <h2 style="text-align:right;">Cabs for Every Pocket </h2>
+                <p style="text-align:right;">From Sedans and SUVs to Luxury cars for special occasions, we have cabs to suit every pocket</p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card" style="background-image: grey;">
+                <img src="img3.jpg" style="float: left; width: 40%;">
+                <h2 style="text-align: right;">Secure and Safer Rides</h2>
+                <p style="text-align: right;">Verified drivers, an emergency alert button, and live ride tracking are some of the features that we have in place to ensure you a safe travel experience</p>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row1">
+        <div class="column">
+            <div class="card" style="background-image: grey;">
+                <img src="img4.jpg" style="float: left; width: 40%;">
+                <h2 style="text-align:right;">myRide Select </h2>
+                <p style="text-align: right;">A membership program with Ola that lets you ride a Prime Sedan at Mini fares, book cabs without peak pricing and has zero wait time</p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card" style="background-image: grey;">
+                <img src="img5.jpg" style="float: left; width: 40%;">
+                <h2 style="text-align: right;">In Cab Entertainment</h2>
+                <p style="text-align: right;">Play music, watch videos and a lot more with Ola Play! Also stay connected even if you are travelling through poor network areas with our free wifi facility.</p>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <div class="row1">
+        <div class="column">
+            <div class="card" style="background-image: grey;">
+                <img src="img6.jpg" style="float: left;">
+                <p id="user"></p>
+                <h2 style="text-align:right;">Share and Express</h2>
+                <p style="text-align: right;"> To travel with the lowest fares choose Ola Share. For a faster travel experience we have Share Express on some fixed routes with zero deviations. Choose your ride and zoom away!
+                </p>
+            </div>
+        </div>
+
+        <div class="column">
+            <div class="card" style="background-image: grey;">
+                <img src="img7.jpg" style="float: left; width: 40%;">
+                <h2 style="text-align: right;">Cashless Rides</h2>
+                <p style="text-align: right;">Now go cashless and travel easy. Simply recharge your Ola money or add your credit/debit card to enjoy hassle free payments</p>
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+
+<script>
+    document.getElementById("user").innerHTML = ab;
+</script>
+
+
+</html>
